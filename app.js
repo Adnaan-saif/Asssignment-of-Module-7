@@ -22,5 +22,8 @@ app.use(cors());
 app.use(mongoSanitize());
 app.use(helmet());
 app.use(hpp());
+app.use((req,res)=>{
+    res.status(404).send('Not Found!');
+})
 
 module.exports = app;
