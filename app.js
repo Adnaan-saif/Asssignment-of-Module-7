@@ -12,6 +12,7 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const hpp = require('hpp');
 const validator = require('validator');
+const router = require('./src/Routes/api');
 
 const app = express( );
 
@@ -21,8 +22,10 @@ app.use(cors());
 app.use(mongoSanitize());
 app.use(helmet());
 app.use(hpp());
-app.use((req,res)=>{
+app.use('*',(req,res)=>{
     res.status(404).send('Not Found!');
 })
+
+app.use("/api/v1",router)
 
 module.exports = app;
