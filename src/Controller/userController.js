@@ -1,6 +1,6 @@
 const app = require("../../app")
 
-export const Create = app.post('/', async (req, res) => {
+const Create = app.post('/', async (req, res) => {
     try {
         let createData = req.body;
         res.status(201).json({status:"success",data:createData});
@@ -9,8 +9,7 @@ export const Create = app.post('/', async (req, res) => {
         res.status(500).json({status: "error", message: "An error occurred"});
     }
 });
-
-export const Read = app.get('/', async (req, res)=>{
+const Read = app.get('/', async (req, res)=>{
     try{
         const getdata = req.query
         res.status(200).json({status:"success",data:getdata});
@@ -19,8 +18,7 @@ export const Read = app.get('/', async (req, res)=>{
         res.status(500).json({status: "error", message: "An error occurred"});
     }
 });
-
-export const Update = app.put('/', async(req, res)=>{
+const Update = app.put('/', async(req, res)=>{
     try{
         const updateID = req.params.id;
         const updatedata = req.body
@@ -30,8 +28,7 @@ export const Update = app.put('/', async(req, res)=>{
         res.status(500).json({status: "error", message: "An error occurred"});
     }
 });
-
-export const Delete = app.delete('/', async(req, res)=>{
+const Delete = app.delete('/', async(req, res)=>{
     try{
         const deleteID = req.params.id;
         res.status(200).json({status:"succss",data:deleteID +"has been deleted"});
@@ -40,3 +37,4 @@ export const Delete = app.delete('/', async(req, res)=>{
         res.status(500).json({status: "error", message: "An error occurred"});
     }
 });
+export {Create,Read,Update,Delete};
