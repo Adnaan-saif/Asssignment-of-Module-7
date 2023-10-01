@@ -13,7 +13,6 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 const validator = require('validator');
 
-
 const app = express( );
 
 app.use(bodyParser.json());
