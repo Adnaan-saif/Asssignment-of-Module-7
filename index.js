@@ -1,8 +1,9 @@
 const app = require('./app');
 const router = require('./src/Routes');
-const port = require('./config.env') || process.env.RUNNING_PORT || 8080;
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'});
 
 app.use(router);
-app.listen(port, () => {
+app.listen(process.env.RUNNING_PORT, () => {
     console.log("Server is running");
-})
+});
